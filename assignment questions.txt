@@ -1,0 +1,24 @@
+WEEK1
+
+Hi All,
+As discussed, try to solve below assignment question from the topics that we covered in week - 1:
+Q. A Banks swift code consist of 11 character as for example: ICICINMY111
+first 4 character represents bank
+next 2 character represents country
+next 2 character represents location
+next 3 character represents branch code
+Create a program to separate our these value to find out the bank name, country name, location name?
+For Assistance: Create an inventory(using any Python data structure of your choice) of Banks, countries and locations as required for the above problem (edited) 
+
+
+WEEK2
+
+Hi All,
+As discussed, please find below the assignment for week-2.
+Q1. Create a function with name findMaxMin, that will accept variable(any number of arguments) arguments and print the following:
+1. Number of arguments passed
+2. max and min value of arguments
+3. Sum of the values of the arguments
+Q2. Create a package name "Car", containing sub-packages as "BMW", "Audi", "Nissan", each containing different modules representing the different models of cars
+where each module will provide the features and functionalities for those car models. For example, BMW package contains modules for car model X1, Z4, X7, I8, where each model will be having some features like Car variants, price,color etc.
+Now in the end, create a file app.py in the root directory and invoke the method of the above created modules, to create an object of a car(any of your choice)
