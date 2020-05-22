@@ -26,16 +26,15 @@ class HtmlValidator:
         html_string = self.htmlFileRead.read_html_file_as_string()
         beautiful_soup = BeautifulSoup(html_string, "html.parser")
 
-        tags = {'placeholder'}
+        tags = {'placeholder': 0}
         for tag in beautiful_soup.find_all():
-            tags.add(tag.name)
-        tags.remove('placeholder')
-
+            tags[tag.name] = len(beautiful_soup.find_all(tag.name))
+        del tags['placeholder']
 
         # test matching of each tag
         for tag in tags:
-            found = re.search("<" + tag + ">([\S\s]*)</" + tag + ">", html_string)
-            if found is None:
+            found = re.findall("<" + tag + ">([\S\s]*)</" + tag + ">", html_string)
+            if len(found) != tags[tag]:
                 print("Html file not valid")
                 return False
 
