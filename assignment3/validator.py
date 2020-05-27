@@ -33,7 +33,7 @@ class HtmlValidator:
 
         # test matching of each tag
         for tag in tags:
-            found = re.findall("<" + tag + ">([\S\s]*)</" + tag + ">", html_string)
+            found = re.findall("<" + tag + ">([\S\s]*)</" + tag + ">|<" + tag + "/>", html_string)
             if len(found) != tags[tag]:
                 print("Html file not valid")
                 return False
