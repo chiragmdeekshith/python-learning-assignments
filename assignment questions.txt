@@ -23,7 +23,7 @@ Q2. Create a package name "Car", containing sub-packages as "BMW", "Audi", "Niss
 where each module will provide the features and functionalities for those car models. For example, BMW package contains modules for car model X1, Z4, X7, I8, where each model will be having some features like Car variants, price,color etc.
 Now in the end, create a file app.py in the root directory and invoke the method of the above created modules, to create an object of a car(any of your choice)
 
-s
+
 WEEK3
 
 Hi All,
@@ -32,3 +32,37 @@ Assignment for Week - 3
 --------------------------------------------------------------
 Q. Create a class named HtmlValidator and define regular expressions inside the class to validate- Whether a given html is valid or not ?
 Note: Create any html file and read it into python using file handling and then apply regular expression to it. Create a separate class to open and read html file and use this class object reference in HtmlValidator class.
+
+
+WEEK4
+
+Hi All,
+As discussed, please find below the assignment for week-4.
+Q1. Implement a console based Chat server that can accept connections/messages from multiple client, and can broadcast response to one or multiple clients using Socket module. Below features has to be implemented for this chat application.
+a. Register the client with client IP and valid email address
+b. Once the client is registered initiate the chat
+c. Save the chat logs in database(you an use any database of your choice).
+Note: Create two tables in database one for storing the list of connections and the other for storing the chat logs for all those connections.
+Q2. Using SMTP protocol, Implement a module that send a chat logs to clients registered email once the chat session is closed as in Question 1.
+Kindly go through this and let me know if you have any concern.
+
+
+WEEK5
+
+Hi All,
+Please find below assignment for week-5:
+Assignment for week-5
+Implement a user portal that runs on Python FLASK server where the user should be able to login to the system
+using valid credentials. Once the user is successfully logged in they should be able to view and edit their
+profile. Use any webservice(JSON or XML) of your choice to communicate between Web browser client and Flask Server.
+
+
+WEEK6
+
+Hi All,
+Please find below assignment for week-6:
+Assignment for Week - 6s
+Q. Make use of Covid-19 open source dataset and try to find out insights out it by applying Data Science
+techniques and use matplotlib library to represent the visualization of outcomes.
+Note: Open source data set for Covid-19 has been uploaded to IBM Box at below URL, You can download and use it.
+https://ibm.ent.box.com/folder/114803360050
