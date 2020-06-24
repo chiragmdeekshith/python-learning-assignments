@@ -9,6 +9,9 @@ def main():
             1) Assignment 1
             2) Assignment 2
             3) Assignment 3
+            4) Assignment 4
+            5) Assignment 5
+            6) Assignment 6
             0) Exit""")
         option = input()
         option = int(option)
@@ -24,6 +27,17 @@ def main():
         elif option == 3:
             print("Assignment 3:-")
             assignment3.main()
+
+        elif option == 4:
+            print("Assignment 4:-")
+            print("Run the assignment4.py for server and the client.py file for client. Run the send_chat_log.py to "
+                  "send chat logs to email IDs")
+
+        elif option == 5:
+            print("Assignment 5:-")
+
+        elif option == 6:
+            print("Assignment 6:-")
 
         elif option == 0:
             print("Exiting.")
