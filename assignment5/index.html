@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <h1>User profile</h1>
+        <br/>
+        <script>
+            function login(){
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+                console.log(email+password);
+
+                let url = "http://127.0.0.1:9753/login";
+
+                fetch(url,{
+                    method : "POST",
+                    headers : {
+                        "content-type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        "email" : email,
+                        "password" : password
+                    })
+                }).then(response=>{
+                    return response.json()
+                })
+                .then(response=>{
+                    console.log("Response",response);
+                    if(response.user == false){
+                        console.log("Wrong");
+                        document.getElementById("wrong").style.visibility = "visible";
+                    }
+                    else{
+                        console.log("Correct");
+
+                        user = {
+                            "name" : response.user.name,
+                            "email" : response.user.email,
+                            "password" : response.user.password
+                        }
+
+                        localStorage.setItem("user",JSON.stringify(user))
+
+                        window.location.href = "update.html"
+                    }
+                });
+            }
+
+
+            const register = ()=>{
+                let name = document.getElementById("newName").value;
+                let confirm = document.getElementById("newConfirm").value;
+                let email = document.getElementById("newEmail").value;
+                let password = document.getElementById("newPassword").value;
+
+                if(confirm != password)
+                    document.getElementById("notmatch").style.visibility = "visible";
+                else{
+                    document.getElementById("notmatch").style.visibility = "hidden";
+
+                    let url = "http://127.0.0.1:9753/register";
+
+                    fetch(url,{
+                        method : "POST",
+                        headers : {
+                            "content-type" : "application/json"
+                        },
+                        body : JSON.stringify({
+                            "email" : email,
+                            "name" : name,
+                            "password" : password
+                        })
+                    }).then(response=>{
+                        return response.json()
+                    })
+                    .then(response=>{
+                        console.log("Response:-",response);
+                        if(response.message = "Created")
+                            document.getElementById("registered").style.visibility = "visible";
+                        else
+                            document.getElementById("registered").style.visibility = "hidden";
+                    });
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <h2>Login</h2>
+        <br/>
+        <p>Email ID </p>
+        <input id="email" type="text" placeholder="Enter email ID">
+        <br/>
+        <p>Password </p>
+        <input id="password" type="password">
+        <br/>
+        <p id="wrong" style="visibility:hidden">Wrong credentials</p>
+        <br/>
+        <br/>
+        <button type="button" id="login" onclick="login()">Login</button>
+        <br/>
+        <hr/>
+        <br/>
+
+        <h2>Register</h2>
+        <br/>
+        <input id="newEmail" type="text" placeholder="Enter email ID"><br/>
+        <input id="newName" type="text" placeholder="Enter full name"><br/>
+        <input id="newPassword" type="password" placeholder="Enter password"><br/>
+        <input id="newConfirm" type="password" placeholder="Confirm password"><br/>
+        <p id="notmatch" style="visibility:hidden">Password doesnt match</p><br/>
+
+        <button type="button" id="register" onclick="register()">Login</button><br/>
+        <p id="registered" style="visibility:hidden">Registered</p><br/>
+    </body>
+</html>

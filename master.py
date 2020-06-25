@@ -35,6 +35,7 @@ def main():
 
         elif option == 5:
             print("Assignment 5:-")
+            print("Run the assignment5.py for flask server. Open index.html for UI")
 
         elif option == 6:
             print("Assignment 6:-")

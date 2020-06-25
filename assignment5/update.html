@@ -1,0 +1,68 @@
+<html>
+
+    <head>
+        <h2>Update Profile</h2>
+        <script>
+            let user
+            const localStorageStuff = ()=>{
+                 user = localStorage.getItem("user")
+                 user = JSON.parse(user)
+                 console.log(user)
+                 localStorage.removeItem("user")
+                 document.getElementById("email").value = user.email
+                 document.getElementById("password").value = user.password
+                 document.getElementById("name").value = user.name
+            }
+            const save = ()=>{
+                user.name = document.getElementById("name").value
+                user.password = document.getElementById("password").value
+
+                let url = "http://127.0.0.1:9753/update";
+                fetch(url,{
+                    method : "PUT",
+                    headers : {
+                        "content-type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        "name" : user.name,
+                        "email" : user.email,
+                        "password" : user.password
+                    })
+                }).then(response=>{
+                    return response.json()
+                })
+                .then(response=>{
+                    console.log("Response:- ",response);
+                    if(response.message == "Updated"){
+                        document.getElementById("saved").style.visibility = "visible";
+                    }
+                    else {
+                        document.getElementById("saved").style.visibility = "hidden";
+                    }
+                });
+            }
+            const back = ()=>{
+                window.location.href = "index.html"
+            }
+        </script>
+    </head>
+    <body onload="localStorageStuff()">
+
+        <p>Email ID </p>
+        <input id="email" type="text" readonly>
+        <br/>
+        <p>Name </p>
+        <input id="name" type="text">
+        <p>Password </p>
+        <input id="password" type="password">
+        <br/>
+        <br/>
+
+        <button type="button" id="save" onclick="save()">Save</button>
+        <p id="saved" style="visibility:hidden">Saved</p>
+        <br/>
+        <hr/>
+        <button type="button" id="back" onclick="back()">Back</button>
+
+    </body>
+</html>
