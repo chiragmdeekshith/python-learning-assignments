@@ -39,6 +39,7 @@ def main():
 
         elif option == 6:
             print("Assignment 6:-")
+            print("Run the assignment6.py file for graph.")
 
         elif option == 0:
             print("Exiting.")
